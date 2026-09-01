@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --red: #D41710;
+  --gold: #C9A84C;
+  --gold-light: #F0D080;
+  --cream: #F7F2EA;
+  --cream-mid: #EDE8DF;
+  --ink: #111111;
+  --ink-mid: #333028;
+  --ink-light: #555048;
+}
+
+@layer base {
+  html { cursor: none; }
+  * { box-sizing: border-box; }
+  
+  ::selection {
+    background: var(--gold);
+    color: var(--ink);
+  }
+}
+
+@layer utilities {
+  .font-bebas { font-family: var(--font-bebas), sans-serif; }
+  .font-playfair { font-family: var(--font-playfair), serif; }
+
+  .text-outline-ink {
+    -webkit-text-stroke: 2px var(--ink);
+    color: transparent;
+  }
+
+  .text-outline-white {
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+  }
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: var(--gold);
+  z-index: 200;
+  transition: width 0.05s linear;
+  pointer-events: none;
+}
+
+/* Cursor */
+#cursor {
+  width: 12px; height: 12px;
+  background: var(--red);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: multiply;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s;
+}
+
+#cursor-ring {
+  width: 40px; height: 40px;
+  border: 1.5px solid rgba(30, 25, 20, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+}
+
+/* Marquee animations */
+@keyframes marquee-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 30s linear infinite;
+}
+
+.animate-marquee-up {
+  animation: marquee-up 22s linear infinite;
+}
+
+/* Fade in up */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease forwards;
+}
+
+.animation-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animation-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animation-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animation-delay-400 { animation-delay: 0.4s; opacity: 0; }
