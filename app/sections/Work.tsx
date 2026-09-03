@@ -3,43 +3,50 @@ import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 
 const projects = [
-  {
-    image: "/work-avenue-window.jpg",
-    client: "Avenue Healthcare",
-    category: "Window Graphics & Signage",
-    span: "row-span-2",
-  },
-  {
-    image: "/work-airtel-arches.jpg",
-    client: "Airtel Kenya",
-    category: "Event Branding & Fabrication",
-    span: "",
-  },
-  {
-    image: "/work-kenya-power.jpg",
-    client: "Kenya Power",
-    category: "Vehicle / Asset Branding",
-    span: "",
-  },
-  {
-    image: "/work-banner-install.jpg",
-    client: "Avenue Healthcare",
-    category: "Banner Installation",
-    span: "",
-  },
-  {
-    image: "/work-truck-wrap.jpg",
-    client: "Nyumba Yangu / NHC",
-    category: "Large Format Vehicle Wrap",
-    span: "",
-  },
+  { image: "/work-stanbic-3d.png",        client: "Stanbic Bank",                 category: "3D Letter Fabrication",              tall: true  },
+  { image: "/work-starchoice-signage.png", client: "Angels / Starchoice Cosmetics", category: "Illuminated 3D Signage",             tall: false },
+  { image: "/work-crabkids-3d.png",        client: "Crab Kids School Shoes",        category: "3D Gold Lettering & Interior Fit-Out", tall: false },
+  { image: "/work-avenue-window.jpg",      client: "Avenue Healthcare",             category: "Window Graphics & Signage",          tall: false },
+  { image: "/work-sir-james-uniform.png",  client: "Sir James Care Homes",          category: "Corporate Uniform Design",           tall: true  },
+  { image: "/work-bolt-wrap.png",          client: "Bolt",                          category: "Vehicle Wrap Installation",          tall: false },
+  { image: "/work-airtel-arches.jpg",      client: "Airtel Kenya",                  category: "Event Fabrication & Branding",       tall: false },
+  { image: "/work-truck-wrap.jpg",         client: "Nyumba Yangu / NHC",            category: "Large Format Vehicle Wrap",          tall: false },
+  { image: "/work-kenya-power.jpg",        client: "Kenya Power",                   category: "Fleet Asset Branding",               tall: false },
+  { image: "/work-avenue-banner.jpg",      client: "Avenue Healthcare",             category: "Banner Installation",                tall: false },
 ];
 
-function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+const videos = [
+  { src: "/video-1.mp4", label: "Brand Activation" },
+  { src: "/video-2.mp4", label: "Production & Install" },
+  { src: "/video-3.mp4", label: "Event Branding" },
+];
+
+const clients = [
+  { name: "Coca-Cola",       domain: "coca-cola.com"        },
+  { name: "Bolt",            domain: "bolt.eu"              },
+  { name: "Canon",           domain: "canon.com"            },
+  { name: "Subaru",          domain: "subaru.com"           },
+  { name: "Airtel",          domain: "airtel.com"           },
+  { name: "Stanbic Bank",    domain: "stanbicbank.com"      },
+  { name: "Avenue Healthcare", domain: "avenuehealthcare.com" },
+  { name: "AAR Healthcare",  domain: "aarinsurance.com"     },
+  { name: "Betika",          domain: "betika.com"           },
+  { name: "Nairobi Hospital", domain: "nairobihospital.org" },
+  { name: "Kenya Power",     domain: "kplc.co.ke"           },
+  { name: "Redington",       domain: "redington.com"        },
+];
+
+/* ── helpers ── */
+function FadeIn({
+  children, delay = 0, className = "",
+}: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, { threshold: 0.1 });
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.07 }
+    );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
@@ -47,101 +54,196 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      className={`transition-all duration-700 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      } ${className}`}
     >
       {children}
     </div>
   );
 }
 
+function VideoCard({ src, label, index }: { src: string; label: string; index: number }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+
+  const toggle = () => {
+    if (!videoRef.current) return;
+    if (playing) { videoRef.current.pause(); setPlaying(false); }
+    else          { videoRef.current.play();  setPlaying(true);  }
+  };
+
+  return (
+    <FadeIn delay={index * 100}>
+      <div
+        className="relative overflow-hidden bg-black group cursor-pointer"
+        onClick={toggle}
+      >
+        <video
+          ref={videoRef}
+          src={src}
+          className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+          playsInline
+          preload="metadata"
+          loop
+        />
+
+        {/* dimmer */}
+        <div
+          className={`absolute inset-0 bg-black/50 transition-opacity duration-300 ${
+            playing ? "opacity-0 group-hover:opacity-60" : "opacity-100"
+          }`}
+        />
+
+        {/* play / pause button */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-200 ${
+            playing ? "opacity-0 group-hover:opacity-100" : "opacity-100"
+          }`}
+        >
+          <div className="w-16 h-16 rounded-full bg-[var(--gold)] flex items-center justify-center shadow-2xl">
+            {playing
+              ? <span className="text-ink text-lg">⏸</span>
+              : <span className="text-ink text-2xl ml-1">▶</span>
+            }
+          </div>
+        </div>
+
+        {/* label bar */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+          <div className="text-[var(--gold-light)] text-[0.6rem] tracking-[0.2em] uppercase mb-0.5">
+            Behind the Scenes
+          </div>
+          <div className="font-bebas text-lg tracking-wide text-white">{label}</div>
+        </div>
+
+        {/* index badge */}
+        <div className="absolute top-3 right-3 bg-[var(--gold)] text-ink font-bebas text-xs tracking-widest px-2 py-1">
+          VIDEO {String(index + 1).padStart(2, "0")}
+        </div>
+      </div>
+    </FadeIn>
+  );
+}
+
+/* ── main component ── */
 export default function Work() {
   return (
     <section id="work" className="bg-ink py-28 px-6 md:px-16">
+
+      {/* Header */}
       <FadeIn>
-        <div className="mb-14">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="block w-6 h-px bg-[var(--gold)]" />
-            <span className="text-[var(--gold)] text-xs tracking-[0.2em] uppercase">Real Work</span>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-14 gap-6">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="block w-6 h-px bg-[var(--gold)]" />
+              <span className="text-[var(--gold)] text-xs tracking-[0.2em] uppercase">Real Work</span>
+            </div>
+            <h2 className="font-bebas text-[clamp(3rem,6vw,7rem)] leading-none text-cream">
+              OUR<br />PORTFOLIO
+            </h2>
           </div>
-          <h2 className="font-bebas text-[clamp(3rem,6vw,7rem)] leading-none text-cream">
-            OUR<br />PORTFOLIO
-          </h2>
+          <p className="text-cream/60 text-sm leading-relaxed max-w-xs md:text-right">
+            A snapshot of brands we've built, wrapped, lit up, and put on the map
+            across Kenya and beyond.
+          </p>
         </div>
       </FadeIn>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 grid-rows-auto md:grid-rows-2 gap-px bg-white/5">
+      {/* ── MASONRY PHOTO GRID ── */}
+      <div className="columns-1 sm:columns-2 lg:columns-3 gap-px">
         {projects.map((p, i) => (
-          <FadeIn key={i} delay={i * 80}>
-            <div className={`group relative overflow-hidden bg-ink ${p.span} ${i === 0 ? "md:row-span-2 h-[400px] md:h-full min-h-[400px]" : "h-[260px]"}`}>
+          <FadeIn key={i} delay={i * 55} className="break-inside-avoid mb-px">
+            <div className="group relative overflow-hidden bg-[#111]">
               <Image
                 src={p.image}
-                alt={p.client}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 33vw"
+                alt={`${p.client} — ${p.category}`}
+                width={800}
+                height={p.tall ? 600 : 420}
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{ height: p.tall ? "400px" : "260px" }}
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              {/* Gold hover overlay */}
-              <div className="absolute inset-0 bg-[var(--gold)]/0 group-hover:bg-[var(--gold)]/20 transition-all duration-300" />
-              {/* Label */}
-              <div className="absolute bottom-0 left-0 p-6 z-10">
-                <div className="text-[var(--gold-light)] text-[0.65rem] tracking-[0.2em] uppercase mb-1">
+              {/* gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+              {/* gold shimmer */}
+              <div className="absolute inset-0 bg-[var(--gold)]/0 group-hover:bg-[var(--gold)]/10 transition-all duration-300" />
+              {/* label */}
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                <div className="text-[var(--gold-light)] text-[0.6rem] tracking-[0.2em] uppercase mb-1 opacity-80">
                   {p.category}
                 </div>
                 <div className="font-bebas text-xl tracking-wide text-white">
                   {p.client}
                 </div>
               </div>
+              {/* index */}
+              <div className="absolute top-3 left-3 font-bebas text-[0.65rem] tracking-widest text-white/25">
+                {String(i + 1).padStart(2, "0")}
+              </div>
             </div>
           </FadeIn>
         ))}
       </div>
 
-      {/* Clients */}
-      <FadeIn delay={200}>
-        <div className="mt-6">
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-white/5">
-            {[
-              { name: "Coca-Cola", domain: "coca-cola.com" },
-              { name: "Bolt", domain: "bolt.eu" },
-              { name: "Canon", domain: "canon.com" },
-              { name: "Subaru", domain: "subaru.com" },
-              { name: "Airtel", domain: "airtel.com" },
-              { name: "Avenue Healthcare", domain: "avenuehealthcare.com" },
-              { name: "AAR Healthcare", domain: "aarinsurance.com" },
-              { name: "Betika", domain: "betika.com" },
-              { name: "Nairobi Hospital", domain: "nairobihospital.org" },
-              { name: "Redington", domain: "redington.com" },
-              { name: "Kenya Power", domain: "kplc.co.ke" },
-              { name: "Mitsumi", domain: "mitsumi.co.ke" },
-            ].map((c) => (
-              <div
-                key={c.name}
-                className="bg-[#1a1a1a] flex flex-col items-center justify-center gap-2 p-5 min-h-[90px] group hover:bg-[#222] transition-colors"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://logo.clearbit.com/${c.domain}`}
-                  alt={c.name}
-                  className="max-h-8 w-auto object-contain opacity-50 brightness-0 invert group-hover:opacity-80 transition-opacity"
-                  onError={(e) => {
-                    const parent = e.currentTarget.parentElement;
-                    if (parent) {
-                      e.currentTarget.style.display = "none";
-                      const span = document.createElement("span");
-                      span.className = "font-bebas text-sm tracking-widest text-[#666] group-hover:text-[#aaa]";
-                      span.textContent = c.name.toUpperCase();
-                      parent.appendChild(span);
-                    }
-                  }}
-                />
-              </div>
-            ))}
+      {/* ── VIDEO SECTION ── */}
+      <FadeIn delay={80}>
+        <div className="mt-24 mb-10">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="block w-6 h-px bg-[var(--gold)]" />
+            <span className="text-[var(--gold)] text-xs tracking-[0.2em] uppercase">In Action</span>
           </div>
+          <h3 className="font-bebas text-[clamp(2rem,4vw,4.5rem)] leading-none text-cream mb-3">
+            WATCH US WORK
+          </h3>
+          <p className="text-cream/50 text-sm max-w-md leading-relaxed">
+            Behind-the-scenes footage of our team bringing brands to life — from
+            fabrication floor to final install.
+          </p>
         </div>
       </FadeIn>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/[0.04]">
+        {videos.map((v, i) => (
+          <VideoCard key={i} src={v.src} label={v.label} index={i} />
+        ))}
+      </div>
+
+      {/* ── CLIENT LOGOS ── */}
+      <FadeIn delay={100}>
+        <div className="mt-24 mb-8">
+          <div className="flex items-center gap-3 mb-3">
+            <span className="block w-6 h-px bg-[var(--gold)]" />
+            <span className="text-[var(--gold)] text-xs tracking-[0.2em] uppercase">Trusted By</span>
+          </div>
+          <h3 className="font-bebas text-3xl text-cream tracking-wide">
+            BRANDS WE&apos;VE WORKED WITH
+          </h3>
+        </div>
+      </FadeIn>
+
+      <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-white/[0.04]">
+        {clients.map((c, i) => (
+          <FadeIn key={i} delay={i * 35}>
+            <div className="bg-[#1a1a1a] flex items-center justify-center p-5 min-h-[88px] group hover:bg-[#222] transition-colors duration-200">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://logo.clearbit.com/${c.domain}`}
+                alt={c.name}
+                className="max-h-8 w-auto object-contain opacity-40 brightness-0 invert group-hover:opacity-80 transition-opacity duration-300"
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
+                  const span = document.createElement("span");
+                  span.className =
+                    "font-bebas text-[0.7rem] tracking-widest text-[#444] group-hover:text-[#999] transition-colors text-center leading-tight";
+                  span.textContent = c.name.toUpperCase();
+                  e.currentTarget.parentElement?.appendChild(span);
+                }}
+              />
+            </div>
+          </FadeIn>
+        ))}
+      </div>
+
     </section>
   );
 }
