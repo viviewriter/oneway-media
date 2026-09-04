@@ -42,7 +42,7 @@ export default function Contact() {
               <div className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase mb-1">Phone</div>
               <div className="text-white text-lg font-semibold">0700 604 254</div>
             <div>
-              <div className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase mb-1">WhatsApp<div>
+              <div className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase mb-1">WhatsApp</div>
               <div className="text-white text-lg font-semibold">0141 226 557</div>
             </div>
             </div>
@@ -92,6 +92,6 @@ export default function Contact() {
           )}
         </div>
       </div>
-    </section>
-  );
-}
+    </section> 
+    );
+  }

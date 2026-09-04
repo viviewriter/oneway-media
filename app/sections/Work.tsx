@@ -195,19 +195,6 @@ export default function Work() {
         ))}
       </div>
 
-      {/* ── CLIENT LOGOS ── */}
-      <FadeIn delay={100}>
-        <div className="mt-24 mb-8">
-          <div className="flex items-center gap-3 mb-3">
-            <span className="block w-6 h-px bg-[var(--gold)]" />
-            <span className="text-[var(--gold)] text-xs tracking-[0.2em] uppercase">Trusted By</span>
-          </div>
-          <h3 className="font-bebas text-3xl text-cream tracking-wide">
-            BRANDS WE&apos;VE WORKED WITH
-          </h3>
-        </div>
-      </FadeIn>
-
     </section>
   );
 }

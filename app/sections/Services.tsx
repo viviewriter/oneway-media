@@ -87,7 +87,6 @@ export default function Services() {
               <span className="absolute top-4 right-6 font-bebas text-6xl text-black/[0.04] select-none">
                 {s.num}
               </span>
-              <div className="text-3xl mb-6">{s.icon}</div>
               <h3 className="font-bebas text-2xl tracking-wide text-ink mb-3">{s.name}</h3>
               <p className="text-ink-light text-sm leading-relaxed mb-5">{s.desc}</p>
               <div className="flex flex-wrap gap-2">
