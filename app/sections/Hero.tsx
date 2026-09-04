@@ -52,7 +52,7 @@ export default function Hero() {
         </div>
 
         <h1 className="font-bebas text-[clamp(4rem,8vw,9rem)] leading-[0.93] tracking-tight mb-8">
-          <span className="block text-ink">TURN</span>
+          <span className="block text-ink">TURNING</span>
           <span className="block text-[var(--red)]">IDEAS</span>
           <span className="block text-outline-ink">INTO</span>
           <span className="block text-ink">REALITY</span>
