@@ -58,10 +58,15 @@ export default function Hero() {
           <span className="block text-ink">REALITY</span>
         </h1>
 
+        <h1 className="font-bebas text-[clamp(4rem,8vw,9rem)] leading-[0.93] tracking-tight mb-8">
+          <span className="block text-ink">DESIGN</span>
+          <span className="block text-[var(--red)]">PRINT</span>
+          <span className="block text-outline-ink">BRAND</span>
+          <span className="block text-ink">SLEEK IMAGING</span>
+        </h1>
+
         <p className="text-ink-light text-base leading-relaxed max-w-md mb-10">
-          We design, print, and brand companies that refuse to be ignored. From
-          logos to large-format billboards — we make businesses look
-          irresistibly good.
+         From logos to large-format billboards, we make businesses look irresistibly good.
         </p>
 
         <div className="flex gap-4 flex-wrap">
