@@ -40,7 +40,11 @@ export default function Contact() {
           <div className="mt-10 space-y-4">
             <div>
               <div className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase mb-1">Phone</div>
-              <div className="text-white text-lg font-semibold">0710 825 398</div>
+              <div className="text-white text-lg font-semibold">0700 604 254</div>
+            <div>
+              <div className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase mb-1">WhatsApp<div>
+              <div className="text-white text-lg font-semibold">0141 226 557</div>
+            </div>
             </div>
             <div>
               <div className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase mb-1">Email</div>
@@ -48,7 +52,7 @@ export default function Contact() {
             </div>
             <div>
               <div className="text-white/50 text-[0.65rem] tracking-[0.2em] uppercase mb-1">Address</div>
-              <div className="text-white">Haji House, Kirinyaga Rd B15<br />Wangige, Nairobi</div>
+              <div className="text-white">Haji House, Kirinyaga Rd B15<br />Nairobi</div>
             </div>
           </div>
         </div>

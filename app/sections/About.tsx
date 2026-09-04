@@ -44,7 +44,7 @@ export default function About() {
           <p className="text-ink-light text-sm leading-relaxed mb-4">
             OneWay Media Limited is Kenya's trusted partner for brands that mean business. Registered
             and built right here in Nairobi, we've spent over a decade transforming ideas into
-            stunning visual realities — from a single business card to city-wide billboard campaigns.
+            stunning visual realities, from a single business card to city-wide billboard campaigns.
           </p>
           <p className="text-ink-light text-sm leading-relaxed mb-10">
             We don't just execute briefs. We dig into your brand's DNA, understand your aesthetic
@@ -91,7 +91,7 @@ export default function About() {
           <div className="mb-10 pb-10 border-b border-white/10">
             <div className="font-bebas text-xs tracking-[0.2em] text-[var(--gold)] mb-3">OUR MISSION</div>
             <p className="text-cream/80 text-base leading-relaxed font-light">
-              We deliver quality printing and designs for anything — clothing, mugs, vehicles, shops,
+              We deliver quality printing and designs for anything: clothing, mugs, vehicles, shops,
               banners, billboards, and posters. Our professional team is equipped to handle whatever
               your brand demands.
             </p>

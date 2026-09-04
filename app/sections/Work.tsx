@@ -21,20 +21,7 @@ const videos = [
   { src: "/video-3.mp4", label: "Event Branding" },
 ];
 
-const clients = [
-  { name: "Coca-Cola",       domain: "coca-cola.com"        },
-  { name: "Bolt",            domain: "bolt.eu"              },
-  { name: "Canon",           domain: "canon.com"            },
-  { name: "Subaru",          domain: "subaru.com"           },
-  { name: "Airtel",          domain: "airtel.com"           },
-  { name: "Stanbic Bank",    domain: "stanbicbank.com"      },
-  { name: "Avenue Healthcare", domain: "avenuehealthcare.com" },
-  { name: "AAR Healthcare",  domain: "aarinsurance.com"     },
-  { name: "Betika",          domain: "betika.com"           },
-  { name: "Nairobi Hospital", domain: "nairobihospital.org" },
-  { name: "Kenya Power",     domain: "kplc.co.ke"           },
-  { name: "Redington",       domain: "redington.com"        },
-];
+
 
 /* ── helpers ── */
 function FadeIn({
@@ -220,29 +207,6 @@ export default function Work() {
           </h3>
         </div>
       </FadeIn>
-
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-px bg-white/[0.04]">
-        {clients.map((c, i) => (
-          <FadeIn key={i} delay={i * 35}>
-            <div className="bg-[#1a1a1a] flex items-center justify-center p-5 min-h-[88px] group hover:bg-[#222] transition-colors duration-200">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`https://logo.clearbit.com/${c.domain}`}
-                alt={c.name}
-                className="max-h-8 w-auto object-contain opacity-40 brightness-0 invert group-hover:opacity-80 transition-opacity duration-300"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  const span = document.createElement("span");
-                  span.className =
-                    "font-bebas text-[0.7rem] tracking-widest text-[#444] group-hover:text-[#999] transition-colors text-center leading-tight";
-                  span.textContent = c.name.toUpperCase();
-                  e.currentTarget.parentElement?.appendChild(span);
-                }}
-              />
-            </div>
-          </FadeIn>
-        ))}
-      </div>
 
     </section>
   );

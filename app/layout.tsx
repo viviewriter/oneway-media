@@ -21,7 +21,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "OneWay Media — Design. Print. Brand.",
+  title: "OneWay Media . Design. Print. Brand.",
   description:
     "Nairobi's trusted partner for graphic design, large format printing, vehicle branding, signage, and events. 10+ years turning ideas into reality.",
   keywords: "printing nairobi, branding kenya, graphic design nairobi, vehicle branding, signage kenya",

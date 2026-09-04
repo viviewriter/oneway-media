@@ -4,42 +4,36 @@ import { useRef, useEffect, useState } from "react";
 const services = [
   {
     num: "01",
-    icon: "✏️",
     name: "Graphic Design & Layout",
     desc: "From logos and letterheads to full magazines. Everything designed print-ready in any format.",
     tags: ["Logos", "Brochures", "Annual Reports", "Flyers"],
   },
   {
     num: "02",
-    icon: "🖨️",
     name: "Large Format Printing",
     desc: "High-impact banners, flags, and stickers on non-curl PVC. Delivered complete with bag and stand unit.",
     tags: ["Banners", "Flags", "Roll-up Stands", "Backdrops"],
   },
   {
     num: "03",
-    icon: "📰",
     name: "Offset / Litho Printing",
     desc: "High-volume professional print for magazines, textbooks, and training manuals. Foiling and embossing available.",
     tags: ["Magazines", "Manuals", "Foiling", "Embossing"],
   },
   {
     num: "04",
-    icon: "🏢",
     name: "Signage & 3D Branding",
     desc: "Light boxes, wall murals, 3D lettering, and window graphics. We make your location impossible to miss.",
     tags: ["3D Letters", "Light Boxes", "Window Graphics"],
   },
   {
     num: "05",
-    icon: "🚗",
     name: "Vehicle Branding",
     desc: "Turn your entire fleet into rolling billboards. Cars, vans, trucks, and motorcycles branded to perfection.",
     tags: ["Cars", "Trucks", "Motorcycles", "Fleet"],
   },
   {
     num: "06",
-    icon: "🎪",
     name: "Events & Exhibitions",
     desc: "End-to-end event management — stands, furniture hire, catering, RSVP, photography, and red carpets.",
     tags: ["Exhibitions", "Photography", "Venue Sourcing"],
@@ -80,7 +74,7 @@ export default function Services() {
             </h2>
           </div>
           <p className="text-ink-light text-sm leading-relaxed md:text-right max-w-sm">
-            From concept to completion — every service designed to make your brand impossible to overlook.
+            From concept to completion. Every service designed to make your brand impossible to overlook.
           </p>
         </div>
       </FadeIn>
