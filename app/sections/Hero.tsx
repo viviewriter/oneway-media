@@ -76,7 +76,7 @@ export default function Hero() {
         {/* ── TURN IDEAS INTO REALITY ── */}
         <h1 className="font-bebas leading-[0.88] tracking-tight relative z-10"
             style={{ fontSize: "clamp(3.2rem, 7.5vw, 7.5rem)", marginBottom: "4px" }}>
-          <span className="block text-ink">TURN</span>
+          <span className="block text-ink">TURNING</span>
           <span className="block text-[var(--red)]">IDEAS</span>
           <span className="block text-outline-ink">INTO</span>
           <span className="block text-ink">REALITY</span>

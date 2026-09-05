@@ -62,18 +62,6 @@ export default function About() {
           </div>
         </FadeIn>
 
-        {/* Real photo */}
-        <FadeIn delay={200}>
-          <div className="relative mt-10 h-56 overflow-hidden">
-            <Image
-              src="/work-avenue-banner.jpg"
-              alt="OneWay Media team at work"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-cream-mid/60 to-transparent" />
-          </div>
-        </FadeIn>
       </div>
 
       {/* Right — dark */}

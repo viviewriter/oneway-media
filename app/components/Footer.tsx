@@ -45,9 +45,9 @@ export default function Footer() {
           <div className="font-bebas text-xs tracking-[0.2em] text-[var(--gold)] mb-5">Contact Us</div>
           <div className="space-y-4">
             {[
-              { label: "Phone", val: "0710 825 398" },
+              { label: "Phone", val: "0700 604 254" },
               { label: "Email", val: "onewaymediazg@gmail.com" },
-              { label: "Address", val: "Haji House, Kirinyaga Rd B15\nWangige, Nairobi" },
+              { label: "Address", val: "Haji House, Kirinyaga Rd B15\nNairobi" },
             ].map((c) => (
               <div key={c.label}>
                 <div className="text-[var(--gold)] text-[0.65rem] tracking-[0.15em] uppercase mb-1">{c.label}</div>

@@ -18,7 +18,8 @@ const projects = [
 const videos = [
   { src: "/video-1.mp4", label: "Brand Activation" },
   { src: "/video-2.mp4", label: "Production & Install" },
-  { src: "/video-3.mp4", label: "Event Branding" },
+  { src: "/video-3.mp4", label: "Vehicle Branding" },
+  { src: "/video-4.mp4", label: "Printing Process" },
 ];
 
 
