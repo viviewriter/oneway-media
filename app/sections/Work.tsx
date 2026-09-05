@@ -7,10 +7,10 @@ const projects = [
   { image: "/work-starchoice-signage.png", client: "Angels / Starchoice Cosmetics", category: "Illuminated 3D Signage",             tall: false },
   { image: "/work-crabkids-3d.png",        client: "Crab Kids School Shoes",        category: "3D Gold Lettering & Interior Fit-Out", tall: false },
   { image: "/work-avenue-window.jpg",      client: "Avenue Healthcare",             category: "Window Graphics & Signage",          tall: false },
-  { image: "/work-sir-james-uniform.png",  client: "Sir James Care Homes",          category: "Corporate Uniform Design",           tall: true  },
+  { image: "/work-sir-james-uniform.png",  client: "T-shirts/Hoodies/Caps Printing",          category: "Corporate Uniform Design",           tall: true  },
   { image: "/work-bolt-wrap.png",          client: "Bolt",                          category: "Vehicle Wrap Installation",          tall: false },
   { image: "/work-airtel-arches.jpg",      client: "Airtel Kenya",                  category: "Event Fabrication & Branding",       tall: false },
-  { image: "/work-truck-wrap.jpg",         client: "Nyumba Yangu / NHC",            category: "Large Format Vehicle Wrap",          tall: false },
+  { image: "/work-truck-wrap.jpg",         client: "Boma Yangu / NHC",            category: "Large Format Vehicle Wrap",          tall: false },
   { image: "/work-kenya-power.jpg",        client: "Kenya Power",                   category: "Fleet Asset Branding",               tall: false },
   { image: "/work-avenue-banner.jpg",      client: "Avenue Healthcare",             category: "Banner Installation",                tall: false },
 ];

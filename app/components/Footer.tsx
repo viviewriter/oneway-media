@@ -46,6 +46,7 @@ export default function Footer() {
           <div className="space-y-4">
             {[
               { label: "Phone", val: "0700 604 254" },
+              { label: "WhatsApp", val: "0141 226 557" },
               { label: "Email", val: "onewaymediazg@gmail.com" },
               { label: "Address", val: "Haji House, Kirinyaga Rd B15\nNairobi" },
             ].map((c) => (
