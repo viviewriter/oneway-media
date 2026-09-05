@@ -12,7 +12,7 @@ const projects = [
   { image: "/work-airtel-arches.jpg",      client: "Airtel Kenya",                  category: "Event Fabrication & Branding",       tall: false },
   { image: "/work-truck-wrap.jpg",         client: "Boma Yangu / NHC",            category: "Large Format Vehicle Wrap",          tall: false },
   { image: "/work-kenya-power.jpg",        client: "Kenya Power",                   category: "Fleet Asset Branding",               tall: false },
-  { image: "/work-avenue-banner.jpg",      client: "Avenue Healthcare",             category: "Banner Installation",                tall: false },
+  { image: "/work-avenue-banner.jpg",      client: "Avenue Healthcare",             category: "Window Graphics",                tall: false },
 ];
 
 const videos = [
