@@ -109,7 +109,7 @@ export default function Hero() {
         {/* Sub copy */}
         <p className="relative z-10 text-ink-light leading-relaxed max-w-sm mb-6"
            style={{ fontSize: "clamp(0.78rem, 1.2vw, 0.9rem)" }}>
-          We make businesses look irresistibly good — from a single business card
+          We make businesses look irresistibly good. From a single business card
           to city-wide billboard campaigns.
         </p>
 
